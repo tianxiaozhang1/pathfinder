@@ -23,9 +23,13 @@ The first two algorithms guarantee the shortest path possible. Depth first is le
 Further reading:
 
 http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html
+
 http://csis.pace.edu/~benjamin/teaching/cs627/webfiles/Astar.pdf
+
 https://medium.com/@urna.hybesis/pathfinding-algorithms-the-four-pillars-1ebad85d4c6b
+
 https://www.raywenderlich.com/3016-introduction-to-a-pathfinding
+
 https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/MIT6_006F11_lec14.pdf
 
 Thanks for visiting.
