@@ -1,4 +1,4 @@
-# pathfinder
+# Pathfinder
 
 Welcome to my path finder exercise.
 
@@ -6,21 +6,21 @@ Breadth first search, depth first search, Dijkstra and A* are four useful path f
 
 They work like this:
 
-A*:
+## A*
 
 ![](https://raw.githubusercontent.com/tianxiaozhang1/pathfinder/main/astar.gif)
 
-Dijkstra:
+## Dijkstra
 
 ![](https://raw.githubusercontent.com/tianxiaozhang1/pathfinder/main/dijkstra.gif)
 
-Depth first:
+## Depth first
 
 ![](https://raw.githubusercontent.com/tianxiaozhang1/pathfinder/main/depthfirst.gif)
 
 The first two algorithms guarantee the shortest path possible. Depth first is less demanding on memory space.
 
-Further reading:
+## Further reading
 
 http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html
 
