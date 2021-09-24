@@ -1,9 +1,6 @@
-from math import trunc
 import pygame, sys, random
-from collections import deque
 
 #Mouse over all six buttons
-
 def maze_hover():
     if 420 <= pygame.mouse.get_pos()[0] <= 660 and 10 <= pygame.mouse.get_pos()[1] <= 100:
         pygame.draw.rect(screen, yellow_hi, pygame.Rect(420, 10, 240, 90)) 
@@ -97,7 +94,6 @@ def draw_board():
         clock.tick(18)
         timeleft -= 1
     
-
 def initialize_maze():
 
     #Build maze
@@ -259,7 +255,7 @@ def draw_maze():
         column_num = timeleft%50
 
         if maze[row_num][column_num] == "w":
-            pygame.draw.rect(screen, darkgrey, pygame.Rect(10+column_num*38, 120+row_num*38, 37, 37))
+            pygame.draw.rect(screen, darkgrey, pygame.Rect(10+column_num*38, 120+row_num*38, 37, 37)) #(0, 62, 116)
             pygame.display.update()
 
 def click_square(ini_sq): 
@@ -516,7 +512,7 @@ def astar():
 
                 for oc in temp_oc_list:
                     if oc != starting_point and oc != goal_point:
-                        pygame.draw.rect(screen, (int((214-204)*((oc_len-timeleft)/oc_len)+204), int((188-92)*((oc_len-timeleft)/oc_len)+92), int((70-32)*((oc_len-timeleft)/oc_len)+32)), pygame.Rect(10+oc[0]*38, 120+oc[1]*38, 37, 37))
+                        pygame.draw.rect(screen, (int((166-210)*((oc_len-timeleft)/oc_len)+210), int((126-72)*((oc_len-timeleft)/oc_len)+72), int((182-52)*((oc_len-timeleft)/oc_len)+52)), pygame.Rect(10+oc[0]*38, 120+oc[1]*38, 37, 37))
                         pygame.display.update()
 
             #Don't draw over the two end points
@@ -541,11 +537,11 @@ def astar():
                 p_sq = path[timeleft]
 
                 if p_sq != starting_point and p_sq != goal_point:
-                    pygame.draw.rect(screen, panelcolour, pygame.Rect(10+p_sq[0]*38+10, 120+p_sq[1]*38+10, 17, 17))
+                    pygame.draw.rect(screen, panelcolour, pygame.Rect(10+p_sq[0]*38+13, 120+p_sq[1]*38+13, 11, 11))
                     pygame.display.update()
             
             for ad in path:
-                pygame.draw.rect(screen, (252, 252, 252), pygame.Rect(10+ad[0]*38+10, 120+ad[1]*38+10, 17, 17))
+                pygame.draw.rect(screen, (252, 252, 252), pygame.Rect(10+ad[0]*38+13, 120+ad[1]*38+13, 11, 11))
 
         open_list.remove(cur_sq)
         closed_list.append(cur_sq)
@@ -718,8 +714,7 @@ def dijkstra():
 
                 for oc in temp_oc_list:
                     if oc != starting_point and oc != goal_point:
-                        pygame.draw.rect(screen, (int((88-46)*((oc_len-timeleft)/oc_len)+46), int((166-88)*((oc_len-timeleft)/oc_len)+88), int((140-168)*((oc_len-timeleft)/oc_len)+168)), pygame.Rect(10+oc[0]*38, 120+oc[1]*38, 37, 37)) # 222, 176, 122 to 216, 136, 52
-                  
+                        pygame.draw.rect(screen, (int((142-202)*((oc_len-timeleft)/oc_len)+202), int((170-182)*((oc_len-timeleft)/oc_len)+182), int((92-28)*((oc_len-timeleft)/oc_len)+28)), pygame.Rect(10+oc[0]*38, 120+oc[1]*38, 37, 37)) # 222, 176, 122 to 216, 136, 52
                         pygame.display.update()
 
             if starting_point in path:
@@ -743,12 +738,12 @@ def dijkstra():
                 p_sq = path[timeleft]
 
                 if p_sq != starting_point and p_sq != goal_point:
-                    pygame.draw.rect(screen, panelcolour, pygame.Rect(10+p_sq[0]*38+10, 120+p_sq[1]*38+10, 17, 17))
+                    pygame.draw.rect(screen, panelcolour, pygame.Rect(10+p_sq[0]*38+13, 120+p_sq[1]*38+13, 11, 11))
 
                     pygame.display.update()
             
             for ad in path:
-                pygame.draw.rect(screen, (252, 252, 252), pygame.Rect(10+ad[0]*38+10, 120+ad[1]*38+10, 17, 17))
+                pygame.draw.rect(screen, (252, 252, 252), pygame.Rect(10+ad[0]*38+13, 120+ad[1]*38+13, 11, 11))
 
         open_list.remove(cur_sq)
         closed_list.append(cur_sq)
@@ -868,7 +863,7 @@ def depth_first():
 
                 timeleft += 1
 
-                pygame.draw.rect(screen, (int((72-196)*((v_len-timeleft)/v_len)+196), int((76-92)*((v_len-timeleft)/v_len)+92), int((156-92)*((v_len-timeleft)/v_len)+92)), pygame.Rect(10+visited_list[timeleft][0]*38, 120+visited_list[timeleft][1]*38, 37, 37))
+                pygame.draw.rect(screen, (int((136-0)*((v_len-timeleft)/v_len)+0), int((172-108)*((v_len-timeleft)/v_len)+108), int((218-136)*((v_len-timeleft)/v_len)+136)), pygame.Rect(10+visited_list[timeleft][0]*38, 120+visited_list[timeleft][1]*38, 37, 37))
                 pygame.display.update()
 
             #Draw the path
@@ -886,11 +881,11 @@ def depth_first():
                     clock.tick(16)
                 timeleft += 1
 
-                pygame.draw.rect(screen, panelcolour, pygame.Rect(10+path[timeleft][0]*38+10, 120+path[timeleft][1]*38+10, 17, 17))
+                pygame.draw.rect(screen, panelcolour, pygame.Rect(10+path[timeleft][0]*38+13, 120+path[timeleft][1]*38+13, 11, 11))
                 pygame.display.update()
 
             for ad in path:
-                pygame.draw.rect(screen, (252, 252, 252), pygame.Rect(10+ad[0]*38+10, 120+ad[1]*38+10, 17, 17))
+                pygame.draw.rect(screen, (252, 252, 252), pygame.Rect(10+ad[0]*38+13, 120+ad[1]*38+13, 11, 11))
 
             #Clean up maze for the next task
             for rs in range(0, 1250):
@@ -955,28 +950,28 @@ screen = pygame.display.set_mode((1920, 1080))
 clock = pygame.time.Clock()
 pygame.display.set_caption('Path Finder')
 
-panelcolour = (236, 236, 236)
-lightgrey = (212, 212, 212)
+panelcolour = (232, 232, 222)#(236, 236, 236)
+lightgrey = (202, 202, 196)#(212, 212, 212)
 
-darkgrey = (118, 118, 118)
+darkgrey = (88, 98, 98)#(52, 78, 108)#(18, 58, 62)#(118, 118, 118)
 
 ruyaoqing = (128, 164, 146)
 
-yellow = (198, 178, 38)
-yellow_hi = (206, 192, 62)
-orange = (204, 92, 32)
-orange_hi = (192, 112, 36)
-green = (132, 168, 42)
-green_hi = (152, 182, 22)
-purple = (82, 42, 96)
-purple_hi = (92, 52, 102)
-blue = (46, 88, 168)
-blue_hi = (72, 102, 172)
-pink = (196, 92, 92)
-pink_hi = (212, 98, 122)
+yellow = (0, 62, 116)#(198, 178, 38)
+yellow_hi = (16, 82, 132)
+orange = (210, 72, 52)#(204, 92, 32)
+orange_hi = (206, 96, 66)#(192, 112, 36)
+green = (42, 110, 62)#(132, 168, 42)
+green_hi = (82, 122, 72)#(152, 182, 22)
+purple = (76, 76, 156)#(82, 42, 96)
+purple_hi = (92, 92, 162)#(92, 52, 102)
+blue = (202, 182, 28)#(46, 88, 168)
+blue_hi = (206, 192, 62)#(72, 102, 172)
+pink = (0, 108, 136)#(196, 92, 92)
+pink_hi = (52, 122, 142)#(212, 98, 122)
 
 red = (168, 34, 38)
-teal = (16, 138, 150)
+teal = (66, 152, 162)#(16, 138, 150)
 
 starting_point = [9, 12]
 goal_point = [40, 12]
